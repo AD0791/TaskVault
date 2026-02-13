@@ -11,6 +11,7 @@
 *.pem
 *.key
 *.keystore
+*.jks
 !*.keystore.example
 
 # -----------------------------------------------------------------------------
@@ -63,7 +64,6 @@ mobile/android/.cxx/
 mobile/android/*.apk
 mobile/android/*.aab
 mobile/android/*.ap_
-mobile/android/*.aab
 
 # Android: avoid ignoring gradle wrapper jar
 !mobile/android/gradle/wrapper/gradle-wrapper.jar
@@ -160,6 +160,10 @@ backend/*.sqlite3
 
 # Jupyter
 backend/.ipynb_checkpoints/
+
+# Sphinx / docs build (if used)
+backend/docs/_build/
+docs/_build/
 
 # uv (lockfile uv.lock is committed; local venv is not)
 # .venv/ already covered above
