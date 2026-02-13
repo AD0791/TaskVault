@@ -86,10 +86,10 @@ TaskVault/
 Set up the root TaskVault repository with the monorepo folder structure.
 
 **Acceptance Criteria**:
-- [ ] GitHub repo created: `TaskVault`
+- [x] GitHub repo created: `TaskVault`
 - [x] Root `.gitignore` covers both Python and React Native artifacts
 - [x] Folder structure established: `mobile/`, `backend/`, `docs/`
-- [ ] Initial commit pushed to `main`
+- [x] Initial commit pushed to `main`
 
 ---
 
@@ -102,11 +102,11 @@ Set up the root TaskVault repository with the monorepo folder structure.
 Create the root-level `docker-compose.yml` that orchestrates the FastAPI server and Adminer DB browser. The compose file should reference the `backend/` directory for the build context.
 
 **Acceptance Criteria**:
-- [ ] `docker-compose.yml` at project root
-- [ ] `api` service defined (build from `./backend`, port 8000)
-- [ ] `adminer` service defined (port 8080)
-- [ ] Volume mounts for SQLite persistence and hot-reload
-- [ ] Environment variables for DB path
+- [x] `docker-compose.yml` at project root
+- [x] `api` service defined (build from `./backend`, port 8000)
+- [x] `adminer` service defined (port 8080)
+- [x] Volume mounts for SQLite persistence and hot-reload
+- [x] Environment variables for DB path
 
 **Reference**: See project design doc § 4 — Docker Architecture
 
@@ -121,10 +121,10 @@ Create the root-level `docker-compose.yml` that orchestrates the FastAPI server 
 Create `backend/Dockerfile` using Python 3.12-slim with uv package manager, and `backend/pyproject.toml` with all required dependencies (FastAPI, SQLModel, Uvicorn, aiosqlite).
 
 **Acceptance Criteria**:
-- [ ] `backend/Dockerfile` created (Python 3.12-slim, uv, uvicorn with --reload)
-- [ ] `backend/pyproject.toml` with all dependencies and versions
-- [ ] `uv.lock` generated and committed
-- [ ] `docker compose build` succeeds without errors
+- [x] `backend/Dockerfile` created (Python 3.12-slim, uv, uvicorn with --reload)
+- [x] `backend/pyproject.toml` with all dependencies and versions
+- [x] `uv.lock` generated and committed
+- [x] `docker compose build` succeeds without errors
 
 ---
 
@@ -137,12 +137,12 @@ Create `backend/Dockerfile` using Python 3.12-slim with uv package manager, and 
 Write a comprehensive README that explains the monorepo structure, prerequisites, how to launch the backend and frontend, and deployment notes.
 
 **Acceptance Criteria**:
-- [ ] Project overview and architecture summary
-- [ ] Prerequisites section (Docker, Node, Android SDK, etc.)
-- [ ] Step-by-step backend launch instructions
-- [ ] Step-by-step frontend launch instructions
-- [ ] Port forwarding notes for physical devices
-- [ ] Deployment section
+- [x] Project overview and architecture summary
+- [x] Prerequisites section (Docker, Node, Android SDK, etc.)
+- [x] Step-by-step backend launch instructions
+- [x] Step-by-step frontend launch instructions
+- [x] Port forwarding notes for physical devices
+- [x] Deployment section
 
 ---
 
