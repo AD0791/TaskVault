@@ -1,0 +1,194 @@
+# =============================================================================
+# TaskVault — Monorepo .gitignore (mobile/ + backend/)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Environment & secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+!*.keystore.example
+
+# -----------------------------------------------------------------------------
+# OS generated
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# -----------------------------------------------------------------------------
+# Logs & temp
+# -----------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache
+
+# =============================================================================
+# MOBILE (React Native / Node.js)
+# =============================================================================
+
+mobile/node_modules/
+mobile/.bundle
+mobile/.metro-health-check*
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+
+# Metro
+mobile/.metro/
+
+# Build outputs
+mobile/android/app/build/
+mobile/android/build/
+mobile/android/.gradle/
+mobile/android/captures/
+mobile/android/local.properties
+mobile/android/.cxx/
+mobile/android/*.apk
+mobile/android/*.aab
+mobile/android/*.ap_
+mobile/android/*.aab
+
+# Android: avoid ignoring gradle wrapper jar
+!mobile/android/gradle/wrapper/gradle-wrapper.jar
+
+# iOS (Podfile.lock is committed for reproducible installs)
+mobile/ios/build/
+mobile/ios/Pods/
+mobile/ios/.xcode.env.local
+mobile/ios/*.xcworkspace/xcuserdata/
+mobile/ios/*.xcodeproj/xcuserdata/
+mobile/ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+mobile/ios/DerivedData/
+mobile/ios/**/DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+*.xccheckout
+*.moved-aside
+
+# TypeScript / JS build info
+mobile/*.tsbuildinfo
+mobile/.tsbuildinfo
+
+# Testing & coverage
+mobile/coverage/
+mobile/.nyc_output/
+mobile/jest-cache/
+*.lcov
+
+# Lint / format
+mobile/.eslintcache
+mobile/.prettiercache
+
+# Watchman (optional: some teams commit this)
+# mobile/.watchmanconfig
+
+# -----------------------------------------------------------------------------
+# Backend (Python / FastAPI / uv)
+# -----------------------------------------------------------------------------
+
+# Byte-compiled / interpreted
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.py[cod]
+backend/**/*.py[cod]
+backend/*$py.class
+backend/**/*$py.class
+
+# Virtual environments
+backend/.venv/
+backend/venv/
+backend/ENV/
+backend/env/
+.venv/
+venv/
+
+# Distribution / packaging
+backend/build/
+backend/dist/
+backend/*.egg-info/
+backend/**/*.egg-info/
+backend/.eggs/
+backend/**/.eggs/
+backend/*.egg
+backend/**/*.egg
+
+# Installer logs
+backend/pip-log.txt
+backend/pip-delete-this-directory.txt
+
+# Unit test / coverage
+backend/.pytest_cache/
+backend/.coverage
+backend/coverage.xml
+backend/htmlcov/
+backend/.hypothesis/
+
+# Type checkers
+backend/.mypy_cache/
+backend/.mypy/
+backend/.ruff_cache/
+
+# SQLite database (runtime data; seed is in code)
+backend/data/
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# Jupyter
+backend/.ipynb_checkpoints/
+
+# uv (lockfile uv.lock is committed; local venv is not)
+# .venv/ already covered above
+
+# =============================================================================
+# IDE / Editor
+# =============================================================================
+
+# Cursor / VSCode (uncomment if you don't commit workspace settings)
+# .vscode/
+# .cursor/
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# =============================================================================
+# Docker (optional overrides; keep docker-compose.yml)
+# =============================================================================
+# docker-compose.override.yml
+# docker-compose.*.local.yml
+
+# =============================================================================
+# Misc
+# =============================================================================
+*.bak
+*.orig
+.vercel
+.netlify
