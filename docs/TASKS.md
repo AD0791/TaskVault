@@ -157,11 +157,11 @@ Write a comprehensive README that explains the monorepo structure, prerequisites
 Create the database module with SQLModel engine, session dependency, and table creation logic. Implement the Task model with all fields (id, title, description, status, priority, created_at, updated_at) and the request schemas (TaskCreate, TaskUpdate).
 
 **Acceptance Criteria**:
-- [ ] `backend/app/database.py` — engine, `create_db_and_tables()`, `get_session()`
-- [ ] `backend/app/models.py` — `Task` table model, `TaskCreate`, `TaskUpdate` schemas
-- [ ] `TaskStatus` enum: pending, in_progress, done
-- [ ] `TaskPriority` enum: low, medium, high
-- [ ] Table auto-creates on startup
+- [x] `backend/app/database.py` — engine, `create_db_and_tables()`, `get_session()`
+- [x] `backend/app/models.py` — `Task` table model, `TaskCreate`, `TaskUpdate` schemas
+- [x] `TaskStatus` enum: pending, in_progress, done
+- [x] `TaskPriority` enum: low, medium, high
+- [x] Table auto-creates on startup
 
 ---
 
@@ -174,9 +174,9 @@ Create the database module with SQLModel engine, session dependency, and table c
 Create seed data that is inserted on first startup when the tasks table is empty. Include 5 sample tasks with varying statuses and priorities.
 
 **Acceptance Criteria**:
-- [ ] `backend/app/seed.py` with `SEED_TASKS` list (5 tasks)
-- [ ] Seed only runs when table is empty (idempotent)
-- [ ] Mix of statuses (pending, in_progress, done) and priorities (low, medium, high)
+- [x] `backend/app/seed.py` with `SEED_TASKS` list (5 tasks)
+- [x] Seed only runs when table is empty (idempotent)
+- [x] Mix of statuses (pending, in_progress, done) and priorities (low, medium, high)
 
 ---
 
@@ -189,12 +189,12 @@ Create seed data that is inserted on first startup when the tasks table is empty
 Create the FastAPI application entry point with CORS middleware (allow all origins for mobile dev), lifespan handler for DB initialization, and health check endpoint.
 
 **Acceptance Criteria**:
-- [ ] `backend/app/main.py` with FastAPI app instance
-- [ ] CORS middleware allowing all origins
-- [ ] Lifespan handler that calls `create_db_and_tables()` on startup
-- [ ] `GET /api/health` returns `{"status": "ok", "service": "taskvault-api"}`
-- [ ] Swagger UI accessible at `/docs`
-- [ ] ReDoc accessible at `/redoc`
+- [x] `backend/app/main.py` with FastAPI app instance
+- [x] CORS middleware allowing all origins
+- [x] Lifespan handler that calls `create_db_and_tables()` on startup
+- [x] `GET /api/health` returns `{"status": "ok", "service": "taskvault-api"}`
+- [x] Swagger UI accessible at `/docs`
+- [x] ReDoc accessible at `/redoc`
 
 ---
 
@@ -207,16 +207,16 @@ Create the FastAPI application entry point with CORS middleware (allow all origi
 Create the tasks router with all CRUD endpoints: list (with filters + pagination), get by ID, create, update (partial), and delete.
 
 **Acceptance Criteria**:
-- [ ] `GET /api/tasks` — list all tasks with response wrapper `{success, data, pagination}`
-- [ ] `GET /api/tasks?status=pending` — filter by status
-- [ ] `GET /api/tasks?priority=high` — filter by priority
-- [ ] `GET /api/tasks?search=react` — search by title (contains)
-- [ ] `GET /api/tasks?page=1&limit=10` — pagination support
-- [ ] `GET /api/tasks/{id}` — get single task (404 if not found)
-- [ ] `POST /api/tasks` — create new task (201 response)
-- [ ] `PUT /api/tasks/{id}` — partial update (updates `updated_at`)
-- [ ] `DELETE /api/tasks/{id}` — delete task (404 if not found)
-- [ ] All endpoints tested via Swagger UI
+- [x] `GET /api/tasks` — list all tasks with response wrapper `{success, data, pagination}`
+- [x] `GET /api/tasks?status=pending` — filter by status
+- [x] `GET /api/tasks?priority=high` — filter by priority
+- [x] `GET /api/tasks?search=react` — search by title (contains)
+- [x] `GET /api/tasks?page=1&limit=10` — pagination support
+- [x] `GET /api/tasks/{id}` — get single task (404 if not found)
+- [x] `POST /api/tasks` — create new task (201 response)
+- [x] `PUT /api/tasks/{id}` — partial update (updates `updated_at`)
+- [x] `DELETE /api/tasks/{id}` — delete task (404 if not found)
+- [x] All endpoints tested via Swagger UI
 
 ---
 
@@ -229,11 +229,11 @@ Create the tasks router with all CRUD endpoints: list (with filters + pagination
 Bring up the full Docker environment, verify all endpoints work via Swagger UI, and confirm Adminer can browse the SQLite database.
 
 **Acceptance Criteria**:
-- [ ] `docker compose up -d` starts both services cleanly
-- [ ] Swagger UI at `http://localhost:8000/docs` — all endpoints visible and testable
-- [ ] Adminer at `http://localhost:8080` — can see `task` table and seed data
-- [ ] Hot reload works (edit Python code → changes reflected without rebuild)
-- [ ] `docker compose down && docker compose up -d` preserves data (volume persistence)
+- [x] `docker compose up -d` starts both services cleanly
+- [x] Swagger UI at `http://localhost:8000/docs` — all endpoints visible and testable
+- [x] Adminer at `http://localhost:8080` — can see `task` table and seed data
+- [x] Hot reload works (edit Python code → changes reflected without rebuild)
+- [x] `docker compose down && docker compose up -d` preserves data (volume persistence)
 
 ---
 

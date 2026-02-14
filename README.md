@@ -13,7 +13,7 @@ A personal task management app built with **React Native CLI** (TypeScript) and 
 │                              │     │                              │
 │  Redux Toolkit ←→ Axios ─────────→│  FastAPI + SQLite            │
 │  React Navigation            │     │  Port 8000 (API)            │
-│  RNEUI Components            │     │  Port 8080 (Adminer)        │
+│  RNEUI Components            │     │  Port 8080 (sqlite-web)     │
 │                              │     │                              │
 │  Also fetches from:          │     │  Swagger UI: /docs           │
 │  JSONPlaceholder (public)    │     │  ReDoc: /redoc               │
@@ -54,7 +54,7 @@ TaskVault/
 │   ├── pyproject.toml         ← Python dependencies (uv)
 │   └── uv.lock
 │
-├── docker-compose.yml         ← Orchestrates API + Adminer
+├── docker-compose.yml         ← Orchestrates API + sqlite-web
 ├── docs/                      ← Project documentation
 │   ├── TASKS.md               ← Full task list (42 issues)
 │   └── GITHUB_SETUP.md        ← GitHub project setup guide
@@ -95,7 +95,7 @@ cd TaskVault
 ### 2. Start the Backend
 
 ```bash
-# Start FastAPI server + Adminer in background
+# Start FastAPI server + sqlite-web in background
 docker compose up -d
 
 # Verify services are running
@@ -113,7 +113,7 @@ docker compose logs -f api
 | Swagger UI  | http://localhost:8000/docs       | Interactive API explorer   |
 | ReDoc       | http://localhost:8000/redoc      | API documentation          |
 | Health      | http://localhost:8000/api/health | Health check endpoint      |
-| Adminer     | http://localhost:8080            | Database browser (SQLite)  |
+| sqlite-web  | http://localhost:8080            | Database browser (SQLite)  |
 
 > **First run**: The database is auto-created with seed data (5 sample tasks).
 
@@ -157,7 +157,7 @@ Open **3 terminals**:
 Terminal 1 (Backend):
 $ docker compose up -d
 ✓ FastAPI on http://localhost:8000
-✓ Adminer on http://localhost:8080
+✓ sqlite-web on http://localhost:8080
 
 Terminal 2 (Metro Bundler):
 $ cd mobile && npx react-native start
@@ -272,13 +272,13 @@ For production deployment, the backend can be hosted on any Docker-compatible pl
 git clone https://github.com/YOUR_USERNAME/TaskVault.git
 cd TaskVault
 
-# Production compose (remove Adminer, add HTTPS proxy)
+# Production compose (remove sqlite-web, add HTTPS proxy)
 docker compose -f docker-compose.prod.yml up -d
 ```
 
 **Production considerations:**
 - Remove `--reload` flag from Uvicorn CMD in Dockerfile
-- Remove Adminer service (or restrict access)
+- Remove sqlite-web service (or restrict access)
 - Add HTTPS reverse proxy (Caddy, Nginx, or Traefik)
 - Set `allow_origins` in CORS to your specific domains
 - Consider switching from SQLite to PostgreSQL for concurrent access
@@ -336,7 +336,7 @@ keytool -genkeypair -v -storetype PKCS12 -keystore taskvault-release.keystore \
 | SQLModel         | ORM + validation (SQLAlchemy + Pydantic) |
 | Uvicorn          | ASGI server                    |
 | Docker Compose   | Container orchestration        |
-| Adminer          | Database browser               |
+| sqlite-web       | Database browser               |
 
 ---
 
